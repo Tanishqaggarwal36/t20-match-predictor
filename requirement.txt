@@ -1,1 +1,4 @@
-sklearn==1.3.2
+streamlit
+scikit-learn
+pandas
+numpy
