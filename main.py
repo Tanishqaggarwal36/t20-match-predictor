@@ -2,11 +2,11 @@ import streamlit as st
 import pickle
 import pandas as pd
 import numpy as np
-from sklearn.pipeline import Pipeline
+#from sklearn.pipeline import Pipeline
 
 # Load the pipeline
 with open("pipe.pkl", "rb") as f:
-    pipe = pickle.load(f)
+    pp = pickle.load(f)
 teams=['Pakistan', 'Zimbabwe', 'Bangladesh', 'South Africa', 'Sri Lanka',
        'West Indies', 'India', 'Afghanistan', 'Australia', 'New Zealand',
        'England', 'Ireland', 'Netherlands', 'Nepal']
@@ -68,7 +68,7 @@ if st.button("Predict Probability"):
     input_df=pd.DataFrame({'Venue':[selected_stadium], 'Bowling team':[bowling_team], 'Batting team':[batting_team], 'Target Score':[target], 'Runs to Get':[runs_left],
        'Balls Remaining':[balls_left], 'Wickets_Rem':[wickets], 'current runs':[score], 'crr':[crr], 'rrr':[rrr]})
     st.table(input_df)
-    result=pipe.predict_proba(input_df)
+    result=pp.predict_proba(input_df)
     loss=result[0][0]
     win=result[0][1]
     st.text("Win percentage of " + batting_team + "- " + str(round(win*100)) + "%")
