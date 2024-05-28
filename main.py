@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 import numpy as np
 #from sklearn.pipeline import Pipeline
-
+import sklearn
 # Load the pipeline
 with open("pipe.pkl", "rb") as f:
     pp = pickle.load(f)
