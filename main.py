@@ -1,6 +1,12 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import numpy as np
+from sklearn.pipeline import Pipeline
+
+# Load the pipeline
+with open("pipe.pkl", "rb") as f:
+    pipe = pickle.load(f)
 teams=['Pakistan', 'Zimbabwe', 'Bangladesh', 'South Africa', 'Sri Lanka',
        'West Indies', 'India', 'Afghanistan', 'Australia', 'New Zealand',
        'England', 'Ireland', 'Netherlands', 'Nepal']
@@ -36,7 +42,7 @@ venue=['R Premadasa Stadium', 'Sheikh Abu Naser Stadium', 'Hagley Oval',
        'Western Australia Cricket Association Ground']
 venue.sort()
 teams.sort()
-pipe=pickle.load(open("pipe.pkl","rb"))
+
 st.title("T20 WIN PREDICTOR")
 col1,col2=st.columns(2)
 with col1:
