@@ -1,7 +1,6 @@
 import streamlit as st
 import pickle
 import pandas as pd
-from sklearn.pipeline import Pipeline
 teams=['Pakistan', 'Zimbabwe', 'Bangladesh', 'South Africa', 'Sri Lanka',
        'West Indies', 'India', 'Afghanistan', 'Australia', 'New Zealand',
        'England', 'Ireland', 'Netherlands', 'Nepal']
