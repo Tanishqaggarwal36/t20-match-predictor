@@ -62,7 +62,7 @@ def match_progression(match):
     x=train.iloc[:,:-1]
     y=train.iloc[:,-1]
     x.drop(columns=["Unnamed: 0"],inplace=True)
-    ct=ColumnTransformer([("trf",OneHotEncoder(sparse=False,drop="first"),['Venue','Bat First', 'Bat Second'])],remainder="passthrough")
+    ct=ColumnTransformer([("trf",OneHotEncoder(sparse_output=False,drop="first"),['Venue','Bat First', 'Bat Second'])],remainder="passthrough")
     st.session_state.pipe1=Pipeline(steps=[("step 1",ct),("step 2",LogisticRegression(solver="liblinear"))])
     st.session_state.pipe1.fit(x,y)
     match_df_2=innings_2[innings_2["Match ID"]==match]
