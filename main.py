@@ -25,7 +25,7 @@ if "pipe" not in st.session_state:
     x=df.drop("Result",axis=1)
     y=df["Result"]
     x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=1)
-    trf=ColumnTransformer([("trf",OneHotEncoder(sparse=False,drop="first"),["Venue","Bowling team","Batting team"])],remainder="passthrough")
+    trf=ColumnTransformer([("trf",OneHotEncoder(sparse_output=False,drop="first"),["Venue","Bowling team","Batting team"])],remainder="passthrough")
     st.session_state.pipe=Pipeline(steps=[("step1",trf),("step2",LogisticRegression(solver="liblinear"))])
     x_train.drop(columns='Unnamed: 0',axis=1,inplace=True)
     st.session_state.pipe.fit(x_train,y_train)
